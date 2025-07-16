@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demostración de Pseudoclases CSS</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+            background: #222;
+            color: #eee;
+            gap: 30px;
+            margin: 0;
+        }
+        .caja {
+            background: #444;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        input {
+            padding: 5px;
+            margin-top: 10px;
+        }
+
+        /* 2.2.1 De estado */
+
+        .estado button:hover {
+            background: orange;
+            color: green;
+        }
+        .estado button:active {
+            background: red;
+            transform: scale(0.95);
+        }
+        .estado input:focus {
+            border: 10px solid cyan;
+            
+        }
+		
+	 
+
+        /* 2.2.2 De posición */
+
+        .posicion ul li:first-child {
+            color: Red;
+            font-weight: bold;
+        }
+        .posicion ul li:last-child {
+            color: magenta;
+            font-weight: bold;
+        }
+		
+		
+		/* 
+		even
+		(2n)
+		p:nth-child(4n+2)
+		odd
+		*/
+		
+        .posicion ul li:nth-child(3n-5) { 
+            background: #755;
+        }
+        .posicion ul li:nth-of-type(5) {
+            text-decoration: underline;
+        }*/
+
+        /* 2.2.3 De validación */
+
+        .validacion input:valid {
+            border: 3px solid lime;
+        }
+        .validacion input:invalid {
+            border: 2px solid red;
+        }
+        .validacion input:required {
+            background: #333;
+        }
+        .validacion input:optional {
+            background: #222;
+        }
+
+        /* 2.2.4 Lógicas modernas */
+
+        .logicas p:is(.rojo, .verde):hover {
+            font-size: 150%;
+        }
+        .logicas p:not(.verde) {
+            border: 1px dashed yellow;
+        }
+        .logicas p:where(.rojo, .verde) {
+            padding: 15px;
+        }
+        
+		/* Nota: :has() solo funciona en navegadores modernos (Chrome 105+, Safari 15.4+, etc) */
+        .logicas div:has(p.verde) {
+            border: 2px solid lime;
+            padding: 10px;
+        }
+
+        /* 2.2.5 Varias   */
+
+        :root {
+            --color-fondo: #444;
+        }
+        .exoticas {
+            background: var(--color-fondo);
+        }
+        .exoticas p:empty {
+            background: red;
+            height: 50px;
+        }
+        /* :target */
+        .exoticas a {
+            color: yellow;
+        }
+        #secreto:target {
+            background: green;
+            color: white;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 2.1 De estado -->
+    <div class="caja estado">
+        <h2>2.1 De estado</h2>
+        <button>Hover / Active</button><br>
+        <input type="text" placeholder="Focus aquí"><input type="bottom"><br/>
+        <small>Hover = naranja | Active = rojo | Focus = borde cyan</small>
+    </div>
+
+    <!-- 2.2 De posición -->
+    <div class="caja posicion">
+        <h2>2.2 De posición</h2>
+        <ul>
+            <li>Elemento 1 </li>
+            <li>Elemento 2</li>
+            <li>Elemento 3 </li>
+            <li>Elemento 4</li>
+			<li>Elemento 5</li>
+			<li>Elemento 6</li>
+			<li>Elemento 7</li>
+			<li>Elemento 8</li>
+            	<li>Elemento 7</li>
+			<li>Elemento 8</li>
+			<li>Elemento 9</li>
+			<li>Elemento 10</li>
+			<li>Elemento 11</li>
+			<li>Elemento 12</li>
+            <li>Elemento 13 </li>
+            <li>Elemento 14</li>
+			<li>Elemento 15</li>
+			<li>Elemento 16</li>
+			<li>Elemento 17</li>
+			<li>Elemento 18</li>
+			<li>Elemento 19</li>
+			<li>Elemento 20</li>
+			<li>Elemento 21</li>
+            <li>Último hijo (last-child)</li>
+            	<li>Elemento 7</li>
+			<li>Elemento 8</li>
+        </ul>
+        <small>Colores según posición</small>
+    </div>
+
+    <!-- 2.3 De validación -->
+    <div class="caja validacion">
+        <h2>2.3 De validación</h2>
+        <form>
+            <input type="email" placeholder="Introduce un email" required>
+            <input type="text" placeholder="Campo opcional">
+        </form>
+        <small>Valid = verde | Invalid = rojo | Required / Optional cambia fondo</small>
+		
+    </div>
+
+    <!-- 2.4 Lógicas modernas -->
+    <div class="caja logicas">
+        <h2>2.4 Lógicas modernas</h2>
+        <div>
+            <p class="rojo">Soy rojo</p>
+            <p class="verde">Soy verde</p>
+            <p class="azul">Soy azul</p>
+        </div>
+        <small>is(), not(), where(), has()</small>
+    </div>
+
+    <!-- 2.5 otros -->
+    <div class="caja exoticas">
+        <h2>2.5 Empty y target</h2>
+        <p></p>
+        <a href="#secreto">Pulsa aquí para activar el :target</a>
+        <div id="secreto">¡Secreto activado!</div>
+        
+    </div>
+
+</body>
+</html>

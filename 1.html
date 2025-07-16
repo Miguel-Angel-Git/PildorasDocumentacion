@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Demostración de Pseudo-elementos CSS</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+            background: #222;
+            color: #eee;
+            gap: 20px;
+            margin: 0;
+        }
+        .caja {
+            background: #444;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 700px;
+			min-width: 700px;
+            text-align: center;
+        }
+
+        /* BEFORE */
+        .before p::before {
+            content: " 🔥 CEREZA Melocoton 🔥 ";
+            color: pink;
+            font-weight: bold;
+        }
+
+        /* AFTER */
+        .after p::after {
+            content: " 🚀 PINGUINO sasad 🚀 ";
+            color: lightgreen;
+            font-weight: bold;
+        }
+
+        /* FIRST-LETTER */
+        .first-letter p::first-letter {
+            font-size: 300%;
+            color: blue;
+            font-weight: bold;
+        }
+
+        /* SELECTION */
+        .selection p::selection {
+            background: magenta;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="caja before">
+        <h2>::before</h2>
+        <p>Este es un texto de prueba para jugar con los pseudo-elementos.</p>
+    </div>
+
+    <div class="caja after">
+        <h2>::after</h2>
+        <p>Este es un texto de prueba para jugar con After scsdsadsa.</p>
+    </div>
+
+    <div class="caja first-letter">
+        <h2>::first-letter</h2>
+        <p>Este es un texto de prueba para jugar con los pseudo-elementos.</p>
+        <small>SOLO LA PRIMERA LETRA SE AGRANDA Y SE COLOREA EN ROJO</small>
+    </div>
+
+    <div class="caja selection">
+        <h2>::selection</h2>
+        <p>Este es un texto de prueba para jugar con los pseudo-elementos. Selecciona este texto con el ratón para ver el efecto.</p>
+        <small>AL SELECCIONAR EL TEXTO CAMBIA A MAGENTA CON LETRA NEGRA</small>
+    </div>
+
+</body>
+</html>
