@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo Arrays y Objetos</title>
+</head>
+<body>
+  <h2>Notas del estudiante</h2>
+  <div id="notas"></div>
+
+  <h2>Lista de productos</h2>
+  <div id="productos"></div>
+
+  <script>
+    // Array dentro de objeto
+    let estudiante = {
+      nombre: "Carlos",
+      notas: [8, 7.5, 9, 6]
+    };
+
+    document.getElementById("notas").innerHTML = `
+      <strong>${estudiante.nombre}</strong>: ${estudiante.notas.join(", ")}
+    `;
+
+    // Objetos dentro de array
+    let productos = [
+      { nombre: "Manzana", precio: 1.2 },
+      { nombre: "Pan", precio: 0.8 },
+      { nombre: "Leche", precio: 1.5 }
+    ];
+
+    let lista = "<ul>";
+    for(let prod of productos) {
+      lista += `<li>${prod.nombre}: $${prod.precio}</li>`;
+    }
+    lista += "</ul>";
+    document.getElementById("productos").innerHTML = lista;
+  </script>
+</body>
+</html>

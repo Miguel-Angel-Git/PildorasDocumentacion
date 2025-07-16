@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Datos del Usuario</title>
+  <style>
+    body { font-family: sans-serif; background: #f8f8f8; padding: 2rem; }
+    .usuario { background: #fff; padding: 1rem; border-radius: 10px; max-width: 350px; }
+  </style>
+</head>
+<body>
+
+  <h1>Información del Usuario</h1>
+  <div class="usuario" id="infoUsuario"></div>
+
+  <script>
+    let usuario = {
+      nombre: "Ana",
+      direccion: {
+        calle: "Gran Vía",
+        ciudad: "Madrid",
+        codigoPostal: "28013"
+      }
+    };
+
+    // Acceso a propiedades usando notación de punto
+    const div = document.getElementById("infoUsuario");
+    div.innerHTML = `
+      <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+      <p><strong>Calle:</strong> ${usuario.direccion.calle}</p>
+      <p><strong>Ciudad:</strong> ${usuario.direccion.ciudad}</p>
+      <p><strong>Código Postal:</strong> ${usuario.direccion.codigoPostal}</p>
+    `;
+  </script>
+
+</body>
+</html>

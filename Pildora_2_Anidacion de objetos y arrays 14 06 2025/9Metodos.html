@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Búsqueda y Filtrado en Arrays de Objetos</title>
+  <style>
+    body { font-family: sans-serif; background: #f8f8f8; padding: 2rem; }
+    .resultado { background: #fff; padding: 1rem; border-radius: 10px; margin-bottom: 1rem; max-width: 500px; }
+    h2 { margin-top: 2rem; }
+    code { background: #e3e9f7; padding: 0.2em 0.4em; border-radius: 4px; }
+  </style>
+</head>
+<body>
+
+  <h1>Búsqueda y Filtrado en Arrays de Objetos</h1>
+  <div class="resultado" id="find"></div>
+  <div class="resultado" id="findIndex"></div>
+  <div class="resultado" id="filter"></div>
+  <div class="resultado" id="map"></div>
+  <div class="resultado" id="reduce"></div>
+
+  <script>
+    const personas = [
+      { nombre: "Ana", edad: 28 },
+      { nombre: "Luis", edad: 35 },
+      { nombre: "Laura", edad: 30 },
+      { nombre: "Paco", edad: 25 }
+    ];
+
+    // find: Buscar la persona llamada "Laura"
+    const ABuscar = personas.find(p => p.nombre === "Laura");
+    document.getElementById("find").innerHTML = `
+      <h2>find</h2>
+      <code>personas.find(p => p.nombre === "Laura")</code>
+      <p><strong>Resultado:</strong> ${ABuscar ? ABuscar.nombre + " (" + ABuscar.edad + " años)" : "No encontrada"}</p>
+    `;
+
+    // findIndex: Índice de la primera persona mayor de 30 años
+    const indiceMayor30 = personas.findIndex(p => p.edad > 30);
+    document.getElementById("findIndex").innerHTML = `
+      <h2>findIndex</h2>
+      <code>personas.findIndex(p => p.edad > 30)</code>
+      <p><strong>Resultado:</strong> ${indiceMayor30 !== -1 ? indiceMayor30 + " (" + personas[indiceMayor30].nombre + ")" : "Ninguno"}</p>
+    `;
+
+    // filter: Todas las personas de 30 años o más
+    const mayores30 = personas.filter(p => p.edad >= 30);
+    document.getElementById("filter").innerHTML = `
+      <h2>filter</h2>
+      <code>personas.filter(p => p.edad >= 30)</code>
+      <p><strong>Resultado:</strong></p>
+      <ul>
+        ${mayores30.map(p => `<li>${p.nombre} (${p.edad} años)</li>`).join("")}
+      </ul>
+    `;
+
+    // map: Array con solo los nombres
+    const nombres = personas.map(p => p.nombre);
+    document.getElementById("map").innerHTML = `
+      <h2>map</h2>
+      <code>personas.map(p => p.nombre)</code>
+      <p><strong>Resultado:</strong> [${nombres.join(", ")}]</p>
+    `;
+
+    // reduce: Suma total de las edades
+    const sumaEdades = personas.reduce((acum, p) => acum + p.edad, 0);
+    document.getElementById("reduce").innerHTML = `
+      <h2>reduce</h2>
+      <code>personas.reduce((acum, p) => acum + p.edad, 0)</code>
+      <p><strong>Resultado:</strong> ${sumaEdades}</p>
+    `;
+  </script>
+
+</body>
+</html>

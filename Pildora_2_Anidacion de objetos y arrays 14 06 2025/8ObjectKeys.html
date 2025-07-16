@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recorrido de propiedades</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+    .caja {
+      background: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Uso de Object.keys, values y entries</h1>
+
+  <div class="caja" id="keys"></div>
+  <div class="caja" id="values"></div>
+  <div class="caja" id="entries"></div>
+
+  <script>
+    const producto = {
+      nombre: "Camiseta",
+      precio: 19.99,
+      disponible: true
+    };
+
+    // Object.keys()
+    const claves = Object.keys(producto);
+    document.getElementById("keys").innerHTML = `
+      <h2>Claves</h2>
+      <p>${claves.join(', ')}</p>
+    `;
+
+    // Object.values()
+    const valores = Object.values(producto);
+    document.getElementById("values").innerHTML = `
+      <h2>Valores</h2>
+      <p>${valores.join(', ')}</p>
+    `;
+
+    // Object.entries()
+    const entradas = Object.entries(producto);
+    let htmlEntradas = "<h2>Entradas</h2><ul>";
+    for (const [clave, valor] of entradas) {
+      htmlEntradas += `<li><strong>${clave}</strong>: ${valor}</li>`;
+    }
+    htmlEntradas += "</ul>";
+    document.getElementById("entries").innerHTML = htmlEntradas;
+  </script>
+
+</body>
+</html>

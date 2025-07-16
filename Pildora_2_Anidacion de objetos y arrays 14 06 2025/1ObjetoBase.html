@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Info de la Persona</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f8f8;
+      padding: 2rem;
+      color: #222;
+    }
+    .persona {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Información de la Persona</h1>
+  <div class="persona" id="infoPersona"> <!-- class para muchos elemento ID unico elemento-->
+  
+    
+  </div>
+
+  <script>
+    const persona = {
+      nombre: "Laura",
+      edad: 30
+    };
+
+    const div = document.getElementById("infoPersona");
+    div.innerHTML = `
+      <p><strong>Nombre:</strong> ${persona.nombre}</p>
+      <p><strong>Edad:</strong> ${persona.edad} años</p>
+    `;
+  </script>
+
+</body>
+</html>

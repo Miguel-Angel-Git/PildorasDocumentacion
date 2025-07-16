@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ejemplo de Desestructuración</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      padding: 20px;
+    }
+
+    .resultado {
+      background-color: #ffffff;
+      padding: 15px;
+      border: 1px solid #cccccc;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Desestructuración en JavaScript</h1>
+
+  <div class="resultado" id="resultadoObjeto"></div>
+  <div class="resultado" id="resultadoArray"></div>
+
+  <script>
+    // ----- OBJETO -----
+    const persona = {
+      nombre: "Lucía",
+      edad: 28,
+      ciudad: "Madrid"
+    };
+
+    // Desestructuramos el objeto
+    const { nombre, edad, ciudad } = persona;
+
+    const resultadoObjeto = document.getElementById("resultadoObjeto");
+    resultadoObjeto.innerHTML = `
+      <h2>Datos de una persona</h2>
+      <p><strong>Nombre:</strong> ${nombre}</p>
+      <p><strong>Edad:</strong> ${edad}</p>
+      <p><strong>Ciudad:</strong> ${ciudad}</p>
+    `;
+
+    // ----- ARRAY -----
+    const colores = ["Rojo", "Verde", "Azul"];
+
+    // Desestructuramos el array
+    const [color1, color2, color3] = colores;
+
+    const resultadoArray = document.getElementById("resultadoArray");
+    resultadoArray.innerHTML = `
+      <h2>Colores favoritos</h2>
+      <p><strong>Color 1:</strong> ${color1}</p>
+      <p><strong>Color 2:</strong> ${color2}</p>
+      <p><strong>Color 3:</strong> ${color3}</p>
+    `;
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recorrido de Objeto Persona</title>
+  <style>
+    body { font-family: sans-serif; background: #f8f8f8; padding: 2rem; }
+    .persona { background: #fff; padding: 1rem; border-radius: 10px; max-width: 350px; }
+  </style>
+</head>
+<body>
+
+  <h1>Propiedades de la Persona</h1>
+  <div class="persona" id="infoPersona"></div>
+
+  <script>
+    const persona = {
+      nombre: "Laura",
+      edad: 30,
+      ciudad: "Madrid"
+    };
+
+    let resultado = "<ul>";
+    for (const clave in persona) {
+      resultado += `<li><strong>${clave}:</strong> ${persona[clave]}</li>`;
+    }
+    resultado += "</ul>";
+
+    document.getElementById("infoPersona").innerHTML = resultado;
+  </script>
+
+</body>
+</html>

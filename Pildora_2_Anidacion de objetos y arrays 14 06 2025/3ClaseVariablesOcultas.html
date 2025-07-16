@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Personas con Propiedades Privadas</title>
+  <style>
+    body { font-family: sans-serif; background: #f8f8f8; padding: 2rem; }
+    .persona { background: #fff; padding: 1rem; border-radius: 10px; margin-bottom: 1rem; box-shadow: 0 0 10px rgba(0,0,0,0.08);}
+  </style>
+</head>
+<body>
+
+  <h1>Personas (Propiedades Privadas)</h1>
+  <div id="personas"></div>
+
+  <script>
+    class Persona {
+      #nombre;
+      #edad;
+      constructor(nombre, edad) {
+        this.#nombre = nombre;
+        this.#edad = edad;
+      }
+      // Métodos públicos para acceder a los valores privados
+      obtenerNombre() {
+        return this.#nombre;
+      }
+      obtenerEdad() {
+        return this.#edad;
+      }
+      cumplirAnios() {
+        this.#edad += 1;
+      }
+    }
+
+    // Crear dos instancias
+    const laura = new Persona("Laura", 30);
+    const paco = new Persona("Paco", 20);
+
+    // Sumar un año a cada uno
+    laura.cumplirAnios();
+    paco.cumplirAnios();
+
+    // Mostrar resultados en pantalla
+    const personasDiv = document.getElementById('personas');
+    personasDiv.innerHTML = `
+      <div class="persona">
+        <strong>Nombre:</strong> ${laura.obtenerNombre()}<br>
+        <strong>Edad:</strong> ${laura.obtenerEdad()} años
+      </div>
+      <div class="persona">
+        <strong>Nombre:</strong> ${paco.obtenerNombre()}<br>
+        <strong>Edad:</strong> ${paco.obtenerEdad()} años
+      </div>
+    `;
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Info de la Persona</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f8f8f8;
+      padding: 2rem;
+      color: #222;
+    }
+
+    .persona {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 350px;
+    }
+
+    .ejemplo {
+      margin-top: 1rem;
+      font-size: 0.98em;
+      color: #555;
+      background: #e3e9f7;
+      padding: 0.7rem;
+      border-radius: 7px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Información de la Persona</h1>
+  <div class="persona" id="infoPersona"></div>
+
+  <script>
+    const persona = {
+      nombre: "Laura",
+      edad: 30
+    };
+
+    // Acceso usando notación de punto
+    const nombrePunto = persona.nombre;
+    const edadPunto = persona.edad;
+
+    // Acceso usando notación de corchetes
+    const nombreCorchetes = persona["nombre"];
+    const edadCorchetes = persona["edad"];
+
+    const div = document.getElementById("infoPersona");
+    div.innerHTML = `
+      <p><strong>Nombre (punto):</strong> ${persona.nombre}</p>
+      <p><strong>Edad (punto):</strong> ${persona.edad+6} años</p>
+      <div class="ejemplo">
+        <strong>Acceso con corchetes:</strong><br>
+        Nombre: ${nombreCorchetes}<br>
+        Edad: ${edadCorchetes} años
+      </div>
+      <div class="ejemplo">
+        <strong>Código usado:</strong><br>
+        persona.nombre<br>
+        persona["nombre"]
+      </div>
+    `;
+  </script>
+
+</body>
+
+</html>
