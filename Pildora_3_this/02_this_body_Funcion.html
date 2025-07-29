@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>En funcion</title>
+</head>
+
+<body>
+    <script>
+        //'use strict'; //--Desactivado
+
+        //variable 1
+        //No se cuelga del objeto global (window)
+        //No es accesible desde this.variable1
+
+
+        //variable 2
+        //Si activas "use strict" no funciona
+        //Se cuelga automáticamente en window (global)
+
+        let variable1 = 50; // como puedo leer esto con this (con LET)
+        var variable2 = 200; // como puedo leer esto con this (con Var )pero en -stricto NO-
+
+        function saludar() {
+            alert(this);//
+
+            alert("Variable 1: " + this.variable1); //undefined con LET
+            alert("Variable 2: " + this.variable2); //lee bien variable2 con "var" 
+        }
+
+
+        saludar(); 
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Flecha</title>
+</head>
+
+<body>
+  <script>'use strict';
+
+    const persona = {
+      nombre: "Cachopo",
+
+      saludar: () => {
+
+        alert("Soy un " + this.nombre);// "Soy un  UNDEFINED"
+        alert(this);// hace referencia a [object Window] (afuera de la funcion)
+      }
+    };
+    persona.saludar(); //   soy un undefined
+  </script>
+</body>
+
+</html>

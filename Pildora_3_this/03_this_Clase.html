@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Con objeto</title>
+
+</head>
+
+<body>
+    <script>'use strict';
+
+        const persona = {
+            nombre: "Cachopo",
+
+            saludar: function () {
+                alert("Hola, soy un " + this.nombre);
+            }
+        };
+        persona.saludar(); // Hola soy Cachopo
+    </script>
+</body>
+
+</html>

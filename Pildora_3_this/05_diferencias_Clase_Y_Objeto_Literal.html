@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Flecha clase y objeto literal</title>
+</head>
+
+<body>
+    <script>'use strict';
+
+        function Persona1() { //clase
+            this.nombre = "Cachopo";
+            this.saludar = () => {
+                console.log("(persona 1) Soy un ", this.nombre + "."); // lo lee bien
+            };
+        }
+
+        const p1 = new Persona1();
+        p1.saludar(); // "(persona 1) Soy un Cachopo"
+
+        const Persona2 = { //objeto literal
+            nombre: "Cachopo",
+            saludar: () => {
+                console.log("(persona 2) Soy un ", this.nombre + "."); //   un undefined
+            }
+        };
+
+        Persona2.saludar(); // "(persona 2) Soy un UNDEFINED"
+    </script>
+</body>
+
+</html>
