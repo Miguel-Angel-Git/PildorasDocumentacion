@@ -1,11 +1,11 @@
 <script>'use strict';
 
-function saludar(nombre) {
-  alert("Hola " + nombre + ", soy " + this.apodo);
-}
+  function saludar(nombre) {
+    alert("Hola " + nombre + ", soy " + this.apodo);
+  }
 
-const heroe = { apodo: "Spiderman" };
+  const heroe = { apodo: "Spiderman" };
 
-saludar.call(heroe, "Miguel"); // Hola Miguel, soy Spiderman
+  saludar.call(heroe, "Miguel"); // Hola Miguel, soy Spiderman
 
 </script>

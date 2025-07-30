@@ -9,11 +9,44 @@
 <body>
     <script>'use strict';
 
-        function Persona1() { //clase
+        function Persona1(nombtr, telfono) { //clase
+
             this.nombre = "Cachopo";
+            this.telefono = "000"
+
             this.saludar = () => {
                 console.log("(persona 1) Soy un ", this.nombre + "."); // lo lee bien
             };
+            telefono(telefono){
+                this.telefono = telefono;
+
+            }
+            function Persona1(nombre = "Cachopo", telefono = "000") {
+                this.nombre = nombre;
+                this.telefono = telefono;
+
+                this.saludar = () => {
+                    console.log("(persona 1) Soy un", this.nombre + ".");
+                };
+
+                this.setTelefono = function (nuevoTelefono) {
+                    this.telefono = nuevoTelefono;
+                };
+
+                this.insertarBD = function () {
+                    return "INSERT INTO BD (name, tlfn) VALUES ('" + this.nombre + "', '" + this.telefono + "')";
+                };
+            }
+
+            // Ejemplo de uso
+            const p1 = new Persona1("Batman", "123456789");
+            p1.saludar();                    // -> (persona 1) Soy un Batman.
+            console.log(p1.insertarBD());   // -> INSERT INTO BD (name, tlfn) VALUES ('Batman', '123456789')
+            p1.setTelefono("987654321");
+            console.log(p1.insertarBD());   // -> INSERT INTO BD (name, tlfn) VALUES ('Batman', '987654321')
+
+
+
         }
 
         const p1 = new Persona1();
@@ -21,9 +54,11 @@
 
         const Persona2 = { //objeto literal
             nombre: "Cachopo",
+
             saludar: () => {
                 console.log("(persona 2) Soy un ", this.nombre + "."); //   un undefined
             }
+
         };
 
         Persona2.saludar(); // "(persona 2) Soy un UNDEFINED"

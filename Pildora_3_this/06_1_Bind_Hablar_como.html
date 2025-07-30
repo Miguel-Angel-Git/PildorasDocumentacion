@@ -1,12 +1,12 @@
 <script>'use strict';
 
-const hablar = function() {
-  alert("Soy " + this.nombre);
-};
+  const hablar = function () {
+    alert("Soy " + this.nombre);
+  };
 
-const persona = { nombre: "Batman" };
+  const persona = { nombre: "Batman" };
 
-const hablarComoBatman = hablar.bind(persona);
+  const hablarComoBatman = hablar.bind(persona);
 
-hablarComoBatman(); // Soy Batman
+  hablarComoBatman(); // Soy Batman
 </script>
